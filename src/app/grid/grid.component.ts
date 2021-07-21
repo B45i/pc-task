@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SavedList } from '../models/dto';
 import { FakeDataService } from '../services/fake-data.service';
 
 @Component({
@@ -7,9 +8,16 @@ import { FakeDataService } from '../services/fake-data.service';
   styleUrls: ['./grid.component.scss'],
 })
 export class GridComponent implements OnInit {
-  savedList = this.dataService.savedList;
+  readonly savedList: Array<SavedList> = this.dataService.savedList;
+  filterdList = this.savedList;
+
+  selectedItem!: SavedList;
 
   constructor(private dataService: FakeDataService) {}
 
   ngOnInit(): void {}
+
+  onSelectItem(item: SavedList) {
+    this.selectedItem = item;
+  }
 }

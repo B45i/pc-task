@@ -36,8 +36,9 @@
 
       <div
         class="row grid-item"
-        [ngClass]="{ 'grid-item-selected': false }"
-        *ngFor="let item of savedList || []"
+        *ngFor="let item of filterdList || []"
+        [ngClass]="{ 'grid-item-selected': item === selectedItem }"
+        (click)="onSelectItem(item)"
       >
         <div class="col-1">
           <span *ngIf="item.date; else noDate">{{
@@ -67,15 +68,27 @@
       </div>
     </div>
 
-    <div class="col-3 pl-3 pr-0">
-      <div class="bg-pc-grey p-3 my-3">
+    <div class="col-3 pl-3 pr-0" *ngIf="selectedItem">
+      <div
+        class="bg-pc-grey p-3 my-3"
+        *ngIf="!selectedItem.description; else description"
+      >
         No Description Yet
         <a class="text-pc-blue font-weight-bold">+ Add Description</a>
       </div>
 
+      <ng-template #description>
+        <div class="bg-pc-grey p-3 my-3">
+          {{ selectedItem.description }}
+        </div>
+      </ng-template>
+
       <div>
-        <div class="text-pc-blue font-weight-600 py-1" *ngFor="let item of []">
-          Bundl Technologies Pvt. Ltd.
+        <div
+          class="text-pc-blue font-weight-600 py-1"
+          *ngFor="let item of selectedItem.attched || []"
+        >
+          {{ item }}
         </div>
       </div>
     </div>

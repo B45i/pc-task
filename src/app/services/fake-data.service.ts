@@ -1,16 +1,6 @@
 import { Injectable } from '@angular/core';
 import * as faker from 'faker';
-
-class SavedList {
-  // todo move to model folder
-  constructor(
-    public name: string,
-    public date?: Date,
-    public description?: string,
-    public attched?: Array<string>,
-    public entries?: number
-  ) {}
-}
+import { SavedList } from '../models/dto';
 
 @Injectable({
   providedIn: 'root',
@@ -22,26 +12,30 @@ export class FakeDataService {
     new SavedList('My Customers'),
   ];
 
-  attached: Array<string> = [];
-
   get savedList(): Array<SavedList> {
     return this.data;
   }
 
-  constructor() {
+  get randomAttached(): Array<string> {
+    const attached: Array<string> = [];
+
     for (let i = 0; i < Math.floor(Math.random() * 20) + 1; i++) {
-      this.attached.push(
+      attached.push(
         `${faker.company.companyName()} ${faker.company.companySuffix()}`
       );
     }
 
+    return attached;
+  }
+
+  constructor() {
     for (let i = 0; i < Math.floor(Math.random() * 30) + 15; i++) {
       this.data.push(
         new SavedList(
           faker.company.companyName(),
           faker.date.past(),
-          i % 2 === 0 ? faker.company.bs() : undefined,
-          this.attached,
+          Math.random() < 0.5 ? faker.company.bs() : undefined,
+          Math.random() < 0.5 ? this.randomAttached : undefined,
           Math.floor(Math.random() * 30) + 15
         )
       );
