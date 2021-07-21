@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FakeDataService } from '../services/fake-data.service';
 
 @Component({
   selector: 'app-grid',
@@ -6,8 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./grid.component.scss'],
 })
 export class GridComponent implements OnInit {
-  arr = new Array(5).fill(12);
-  constructor() {}
+  savedList = this.dataService.savedList;
+
+  constructor(private dataService: FakeDataService) {}
 
   ngOnInit(): void {}
 }

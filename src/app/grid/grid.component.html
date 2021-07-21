@@ -34,15 +34,30 @@
         <div class="col-1"></div>
       </div>
 
-      <div class="row grid-item grid-item-selected" *ngFor="let item of arr">
-        <div class="col-1">Jul 23</div>
-        <div class="col-5">Ton_index</div>
-        <div class="col-2">27</div>
+      <div
+        class="row grid-item"
+        [ngClass]="{ 'grid-item-selected': false }"
+        *ngFor="let item of savedList || []"
+      >
+        <div class="col-1">
+          <span *ngIf="item.date; else noDate">{{
+            item.date | date: "MMM d"
+          }}</span>
+          <ng-template #noDate>
+            <i class="fas fa-sync-alt"></i>
+          </ng-template>
+        </div>
+        <div class="col-5">{{ item.name }}</div>
+        <div class="col-2">
+          {{ item.entries }}
+        </div>
         <div class="col-2 actions-icons">
           <i class="far fa-envelope"></i>
-          <i class="fas fa-share-alt"></i>
-          <i class="fas fa-pen"></i>
-          <i class="fas fa-trash-alt"></i>
+          <ng-container *ngIf="item.date">
+            <i class="fas fa-share-alt"></i>
+            <i class="fas fa-pen"></i>
+            <i class="fas fa-trash-alt"></i>
+          </ng-container>
         </div>
         <div class="col-2">
           <button class="btn font-weight-600 text-pc-blue btn-detials">
@@ -59,7 +74,7 @@
       </div>
 
       <div>
-        <div class="text-pc-blue font-weight-600 py-1" *ngFor="let item of arr">
+        <div class="text-pc-blue font-weight-600 py-1" *ngFor="let item of []">
           Bundl Technologies Pvt. Ltd.
         </div>
       </div>
