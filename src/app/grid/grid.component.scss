@@ -1,0 +1,49 @@
+.grid-item {
+  display: flex;
+  align-items: center;
+  padding: 6px 0;
+
+  &:not(:last-child) {
+    border-bottom: 1px solid #dee2e6;
+  }
+
+  &:hover {
+    background-color: #eee;
+  }
+
+  &-selected {
+    background-color: #ddd;
+
+    .actions-icons {
+      color: #000;
+    }
+
+    .btn-detials {
+      position: relative;
+      padding-top: 2px;
+      padding-bottom: 3px;
+      border-radius: 0;
+      background-color: #fff;
+      &:after {
+        content: "";
+        display: inline-block;
+        position: absolute;
+        height: 5px;
+        width: 103%;
+        bottom: -1px;
+        left: -1px;
+        background-color: #1e597d;
+      }
+    }
+  }
+}
+
+.actions-icons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: rgb(0 0 0 / 42%);
+  i {
+    cursor: pointer;
+  }
+}

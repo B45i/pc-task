@@ -1,1 +1,68 @@
-<p>grid works!</p>
+<div class="">
+  <div class="d-flex justify-content-between align-items-center p-3 bg-pc-grey">
+    <div class="d-flex">
+      <button class="btn btn-active px-4">
+        <i class="fas fa-list mr-1"></i>
+        Saved List
+      </button>
+      <button class="btn">
+        <i class="fas fa-filter mr-1"></i>
+        Saved Filters
+      </button>
+      <button class="btn">
+        <i class="fas fa-history mr-1"></i>
+        Search History
+      </button>
+    </div>
+
+    <div class="flex-grow-1">
+      <input
+        class="form-control w-75 ml-auto"
+        type="text"
+        placeholder="Search"
+      />
+    </div>
+  </div>
+
+  <div class="row mr-0 px-3">
+    <div class="col-9">
+      <div class="row border-bottom text-black-50 font-weight-bold py-2">
+        <div class="col-1">Date</div>
+        <div class="col-5">List Name</div>
+        <div class="col-2">No. Of Entities</div>
+        <div class="col-3">Actions</div>
+        <div class="col-1"></div>
+      </div>
+
+      <div class="row grid-item grid-item-selected" *ngFor="let item of arr">
+        <div class="col-1">Jul 23</div>
+        <div class="col-5">Ton_index</div>
+        <div class="col-2">27</div>
+        <div class="col-2 actions-icons">
+          <i class="far fa-envelope"></i>
+          <i class="fas fa-share-alt"></i>
+          <i class="fas fa-pen"></i>
+          <i class="fas fa-trash-alt"></i>
+        </div>
+        <div class="col-2">
+          <button class="btn font-weight-600 text-pc-blue btn-detials">
+            Details
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-3 pl-3 pr-0">
+      <div class="bg-pc-grey p-3 my-3">
+        No Description Yet
+        <a class="text-pc-blue font-weight-bold">+ Add Description</a>
+      </div>
+
+      <div>
+        <div class="text-pc-blue font-weight-600 py-1" *ngFor="let item of arr">
+          Bundl Technologies Pvt. Ltd.
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
