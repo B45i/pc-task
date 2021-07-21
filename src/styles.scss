@@ -1,4 +1,54 @@
 /* You can add global styles to this file, and also import other style files */
 
 /* Importing Bootstrap SCSS file. */
-@import '~bootstrap/scss/bootstrap';
+@import "~bootstrap/scss/bootstrap";
+
+.btn {
+  color: black !important;
+  &:not(:last-child) {
+    margin-right: 1rem;
+  }
+
+  &-active {
+    color: #ffffffc4 !important;
+    background-color: #002b42 !important;
+  }
+}
+
+.grid-item {
+  display: flex;
+  align-items: center;
+  padding: 6px 0;
+
+  &:not(:last-child) {
+    border-bottom: 1px solid #dee2e6;
+  }
+}
+
+.actions-icons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: rgb(0 0 0 / 42%);
+  i {
+    cursor: pointer;
+  }
+}
+
+// utils
+
+.gap-1 {
+  gap: 1rem;
+}
+
+.bg-pc-grey {
+  background-color: #f5f5f5 !important;
+}
+
+.text-pc-blue {
+  color: #1e597d !important;
+}
+
+.font-weight-600 {
+  font-weight: 600 !important;
+}
