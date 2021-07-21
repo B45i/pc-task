@@ -1,27 +1,24 @@
-# PCircle
+# Private Circle Angular Task
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.1.1.
 
-## Development server
+## Live Versin
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Live Version of this app can be found [here](https://private-circle-task.vercel.app/)
 
-## Code scaffolding
+Exlpore Code [here](https://github1s.com/B45i/pc-task/blob/HEAD/src/app/grid/grid.component.html)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## 3rd party Libraries
 
-## Build
+- ng-bootstrap
+- Faker.js
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Data is generated using a random data generation library called `faker.js`
 
-## Running unit tests
+company names in the list is dynamic, as well as the `description` and the list below description.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## UI Mockups
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+![alt](./a.png)
+![alt](./b.png)
+![alt](./c.png)
